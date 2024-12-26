@@ -70,14 +70,6 @@ const menuClicked = (/*@vite-ignore item:any, key:number,*/ keyPath:string) => {
     </template>
     <template #contentSlot>
       <router-view/>
-<!--      下面这个做法每次从根目录出发访问是没有问题的，一旦子路由自己互相访问，就会丢失渲染，看起来都是内容区都是空白页 -->
-<!--      <router-view v-slot="{ Component }">-->
-<!--        <transition name="fade-transform" mode="out-in">-->
-<!--          <keep-alive>-->
-<!--            <component :is="Component"/>-->
-<!--          </keep-alive>-->
-<!--        </transition>-->
-<!--      </router-view>-->
     </template>
 
   </BasicLayout>

@@ -13,7 +13,7 @@ export default defineConfig(({mode}) => {
         plugins: [vue()],
         envDir: envDir,
         define: {
-            //
+            // 支持自定义环境路径，默认是根目录
             'process.env': env ,
             // __APP_ENV__: JSON.stringify(env.APP_ENV),
         },

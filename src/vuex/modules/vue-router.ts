@@ -1,6 +1,6 @@
 import {createRouter, createWebHistory, RouteRecordRaw} from 'vue-router'
 import {loadView} from "../../const/const.ts";
-import {userStore} from "./user.ts";
+// import {userStore} from "./user.ts";
 // import index from "../../views/home/index.vue";
 
 
@@ -82,23 +82,23 @@ export const router = createRouter({
 
 router.beforeEach(async (to, from, next) => {
     console.log('from:[', from.path, ']--> to:[', to.path, ']')
-    // next()
-    // ToDo 先判断本地缓存有没有
+    next()
 
+    // 如果没有对应的后端服务处理，下面的代码是需要注释的，后端提供一个mock数据即可，或者你直接写死本地也行
+    // const user = userStore();
+    // if (user.token) {
+    //     next()
+    // } else {
+    //     const res = await user.ssoLoginCheck({})
+    //     if (res.accessToken && res.accessToken.length > 0) {
+    //         next({path: '/'})
+    //     } else {
+    //         // 跳转到登录页 后续 需要提供html 登录页
+    //         // window.location.replace(SSO_LOGIN_URL)
+    //         next()
+    //     }
+    // }
 
-    const user = userStore();
-    if (user.token) {
-        next()
-    } else {
-        const res = await user.ssoLoginCheck({})
-        if (res.accessToken && res.accessToken.length > 0) {
-            next({path: '/'})
-        } else {
-            // 跳转到登录页 后续 需要提供html 登录页
-            // window.location.replace(SSO_LOGIN_URL)
-            next()
-        }
-    }
 
 
 })
